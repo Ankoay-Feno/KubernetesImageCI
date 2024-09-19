@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses:  action/checkout@v2
+        uses: actions/checkout@v2
 
       - name: Set up Docker Builder
-        uses: docker/setup-builder-action@v1 
+        uses: docker/setup-buildx-action@v1 
 
       - name: Log in to DockerHub
         run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
