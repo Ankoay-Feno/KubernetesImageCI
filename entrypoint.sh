@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Start Docker (since Docker is included, we run it directly)
-dockerd &
 
 # Determine if the node is a master or a worker based on environment variables
 if [ "$NODE_ROLE" == "master" ]; then
