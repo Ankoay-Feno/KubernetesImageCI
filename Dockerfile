@@ -1,9 +1,8 @@
 # Uses the latest version of Alpine Linux as the base image
-FROM alpine:latest
+FROM docker:bind
 
 # Environment variables
 ENV K8S_VERSION=v1.25.0 \
-    DOCKER_VERSION=20.10.7 \
     CRICTL_VERSION=v1.22.0
 
 # Updates packages and installs necessary dependencies
@@ -19,8 +18,6 @@ RUN apk update && \
         iproute2 \
         util-linux \
         ipvsadm \
-        docker \
-        containerd \
         runc \
         cni-plugins
 
