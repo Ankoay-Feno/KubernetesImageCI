@@ -1,5 +1,5 @@
 # Uses the latest version of Alpine Linux as the base image
-FROM docker:bind
+FROM docker:dind
 
 # Environment variables
 ENV K8S_VERSION=v1.25.0 \
