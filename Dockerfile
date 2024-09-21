@@ -8,7 +8,7 @@ ENV K8S_VERSION=v1.25.0 \
 # Updates packages and installs necessary dependencies
 RUN apk update && \
     apk add --no-cache \
-        bash \  # Ensure bash is installed
+        bash \
         curl \
         iptables \
         ebtables \
