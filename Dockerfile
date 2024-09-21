@@ -1,4 +1,5 @@
-# Uses the latest version of Alpine Linux as the base image
+
+# Use the latest version of Alpine Linux as the base image
 FROM docker:dind
 
 # Environment variables
@@ -36,8 +37,9 @@ RUN curl -LO "https://dl.k8s.io/release/${K8S_VERSION}/bin/linux/amd64/kubelet" 
     chmod +x kubelet && \
     mv kubelet /usr/local/bin/
 
-# Copy the initialization script
-COPY entrypoint.sh /usr/local/bin/
+# Copy the initialization script and make it executable
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
 
 # Expose necessary ports for the Kubernetes cluster
 EXPOSE 6443 2379 2380 10250 10259 10257 10255 30000-32767
