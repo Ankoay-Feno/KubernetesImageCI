@@ -1,4 +1,3 @@
-
 # Use the latest version of Alpine Linux as the base image
 FROM docker:dind
 
@@ -9,7 +8,7 @@ ENV K8S_VERSION=v1.25.0 \
 # Updates packages and installs necessary dependencies
 RUN apk update && \
     apk add --no-cache \
-        bash \
+        bash \  # Ensure bash is installed
         curl \
         iptables \
         ebtables \
@@ -46,4 +45,3 @@ EXPOSE 6443 2379 2380 10250 10259 10257 10255 30000-32767
 
 # Set the entry point
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
-
